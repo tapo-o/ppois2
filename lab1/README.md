@@ -94,5 +94,5 @@
 
 ### Тесты и покрытие:
 <p align="center">
-  <img width="400" height="250" src="https://github.com/tapo-o/ppois2/blob/main/lab1/pics/cov1.png">
+  <img src="https://github.com/tapo-o/ppois2/blob/main/lab1/pics/cov1.png">
 </p>
