@@ -1,0 +1,403 @@
+<?xml version="1.0" ?>
+<athletes>
+  <athlete>
+    <full_name>Иванов Алексей Петрович</full_name>
+    <squad>основной</squad>
+    <position>Нападающий</position>
+    <titles>12</titles>
+    <sport>Футбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Смирнов Дмитрий Сергеевич</full_name>
+    <squad>запасной</squad>
+    <position>Вратарь</position>
+    <titles>3</titles>
+    <sport>Футбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Кузнецов Владимир Иванович</full_name>
+    <squad>основной</squad>
+    <position>Защитник</position>
+    <titles>5</titles>
+    <sport>Хоккей</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Попов Александр Александрович</full_name>
+    <squad>основной</squad>
+    <position>Центровой</position>
+    <titles>18</titles>
+    <sport>Баскетбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Васильев Николай Николаевич</full_name>
+    <squad>n/a</squad>
+    <position>Одиночник</position>
+    <titles>2</titles>
+    <sport>Теннис</sport>
+    <rank>2-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Петров Михаил Андреевич</full_name>
+    <squad>запасной</squad>
+    <position>Разыгрывающий</position>
+    <titles>0</titles>
+    <sport>Баскетбол</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Соколов Сергей Михайлович</full_name>
+    <squad>основной</squad>
+    <position>Полузащитник</position>
+    <titles>8</titles>
+    <sport>Футбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Михайлов Андрей Юрьевич</full_name>
+    <squad>запасной</squad>
+    <position>Крайний нападающий</position>
+    <titles>1</titles>
+    <sport>Хоккей</sport>
+    <rank>3-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Новиков Игорь Олегович</full_name>
+    <squad>основной</squad>
+    <position>Либеро</position>
+    <titles>4</titles>
+    <sport>Волейбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Федоров Павел Денисович</full_name>
+    <squad>n/a</squad>
+    <position>Тяжеловес</position>
+    <titles>25</titles>
+    <sport>Бокс</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Морозов Виктор Павлович</full_name>
+    <squad>основной</squad>
+    <position>Спринтер</position>
+    <titles>14</titles>
+    <sport>Легкая атлетика</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Волков Артем Евгеньевич</full_name>
+    <squad>запасной</squad>
+    <position>Стайер</position>
+    <titles>3</titles>
+    <sport>Легкая атлетика</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Алексеев Даниил Максимович</full_name>
+    <squad>основной</squad>
+    <position>Доигровщик</position>
+    <titles>9</titles>
+    <sport>Волейбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Лебедев Роман Игоревич</full_name>
+    <squad>n/a</squad>
+    <position>Парный игрок</position>
+    <titles>6</titles>
+    <sport>Теннис</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Семенов Илья Владимирович</full_name>
+    <squad>основной</squad>
+    <position>Легкий форвард</position>
+    <titles>22</titles>
+    <sport>Баскетбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Егоров Максим Александрович</full_name>
+    <squad>запасной</squad>
+    <position>Защитник</position>
+    <titles>1</titles>
+    <sport>Футбол</sport>
+    <rank>3-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Павлов Егор Викторович</full_name>
+    <squad>n/a</squad>
+    <position>Баттерфляй 100м</position>
+    <titles>17</titles>
+    <sport>Плавание</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Козлов Тимур Николаевич</full_name>
+    <squad>запасной</squad>
+    <position>Брасс 50м</position>
+    <titles>4</titles>
+    <sport>Плавание</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Степанов Глеб Андреевич</full_name>
+    <squad>основной</squad>
+    <position>Вратарь</position>
+    <titles>11</titles>
+    <sport>Хоккей</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Николаев Константин Сергеевич</full_name>
+    <squad>n/a</squad>
+    <position>Легковес</position>
+    <titles>5</titles>
+    <sport>Бокс</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Орлов Леонид Дмитриевич</full_name>
+    <squad>основной</squad>
+    <position>Нападающий</position>
+    <titles>30</titles>
+    <sport>Футбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Андреев Вадим Борисович</full_name>
+    <squad>запасной</squad>
+    <position>Центральный блокирующий</position>
+    <titles>7</titles>
+    <sport>Волейбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Макаров Денис Алексеевич</full_name>
+    <squad>n/a</squad>
+    <position>Одиночник</position>
+    <titles>10</titles>
+    <sport>Теннис</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Никитин Антон Павлович</full_name>
+    <squad>основной</squad>
+    <position>Атакующий защитник</position>
+    <titles>15</titles>
+    <sport>Баскетбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Захаров Вячеслав Романович</full_name>
+    <squad>запасной</squad>
+    <position>Полузащитник</position>
+    <titles>2</titles>
+    <sport>Футбол</sport>
+    <rank>2-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Зайцев Руслан Игоревич</full_name>
+    <squad>основной</squad>
+    <position>Центральный нападающий</position>
+    <titles>9</titles>
+    <sport>Хоккей</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Соловьев Эдуард Олегович</full_name>
+    <squad>n/a</squad>
+    <position>Вольный стиль 200м</position>
+    <titles>13</titles>
+    <sport>Плавание</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Борисов Юрий Степанович</full_name>
+    <squad>запасной</squad>
+    <position>Защитник</position>
+    <titles>1</titles>
+    <sport>Хоккей</sport>
+    <rank>3-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Яковлев Станислав Викторович</full_name>
+    <squad>основной</squad>
+    <position>Тяжелый форвард</position>
+    <titles>21</titles>
+    <sport>Баскетбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Григорьев Матвей Константинович</full_name>
+    <squad>n/a</squad>
+    <position>Многоборье</position>
+    <titles>8</titles>
+    <sport>Легкая атлетика</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Романов Борис Леонидович</full_name>
+    <squad>основной</squad>
+    <position>Связующий</position>
+    <titles>6</titles>
+    <sport>Волейбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Воробьев Евгений Геннадьевич</full_name>
+    <squad>запасной</squad>
+    <position>Нападающий</position>
+    <titles>0</titles>
+    <sport>Футбол</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Сергеев Владислав Анатольевич</full_name>
+    <squad>n/a</squad>
+    <position>Средний вес</position>
+    <titles>19</titles>
+    <sport>Бокс</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Кузьмин Григорий Тимурович</full_name>
+    <squad>основной</squad>
+    <position>Защитник</position>
+    <titles>12</titles>
+    <sport>Футбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Фролов Олег Вадимович</full_name>
+    <squad>запасной</squad>
+    <position>Разыгрывающий</position>
+    <titles>3</titles>
+    <sport>Баскетбол</sport>
+    <rank>2-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Александров Федор Ильич</full_name>
+    <squad>основной</squad>
+    <position>Вратарь</position>
+    <titles>24</titles>
+    <sport>Футбол</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Дмитриев Петр Георгиевич</full_name>
+    <squad>n/a</squad>
+    <position>Парный игрок</position>
+    <titles>4</titles>
+    <sport>Теннис</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Королев Марк Ярославович</full_name>
+    <squad>основной</squad>
+    <position>Крайний нападающий</position>
+    <titles>16</titles>
+    <sport>Хоккей</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Гусев Георгий Эдуардович</full_name>
+    <squad>запасной</squad>
+    <position>Диагональный</position>
+    <titles>2</titles>
+    <sport>Волейбол</sport>
+    <rank>3-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Игнатов Виктор Васильевич</full_name>
+    <squad>n/a</squad>
+    <position>Прыжки в длину</position>
+    <titles>11</titles>
+    <sport>Легкая атлетика</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Тарасов Илья Александрович</full_name>
+    <squad>основной</squad>
+    <position>Полузащитник</position>
+    <titles>7</titles>
+    <sport>Футбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Белов Кирилл Максимович</full_name>
+    <squad>запасной</squad>
+    <position>Центровой</position>
+    <titles>0</titles>
+    <sport>Баскетбол</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Жуков Ярослав Валерьевич</full_name>
+    <squad>n/a</squad>
+    <position>На спине 100м</position>
+    <titles>5</titles>
+    <sport>Плавание</sport>
+    <rank>2-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Максимов Владимир Петрович</full_name>
+    <squad>основной</squad>
+    <position>Защитник</position>
+    <titles>28</titles>
+    <sport>Хоккей</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Власов Алексей Игоревич</full_name>
+    <squad>запасной</squad>
+    <position>Либеро</position>
+    <titles>3</titles>
+    <sport>Волейбол</sport>
+    <rank>3-й разряд</rank>
+  </athlete>
+  <athlete>
+    <full_name>Исаев Денис Борисович</full_name>
+    <squad>n/a</squad>
+    <position>Одиночник</position>
+    <titles>20</titles>
+    <sport>Теннис</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Сидоров Андрей Николаевич</full_name>
+    <squad>основной</squad>
+    <position>Нападающий</position>
+    <titles>9</titles>
+    <sport>Футбол</sport>
+    <rank>кмс</rank>
+  </athlete>
+  <athlete>
+    <full_name>Баранов Артем Сергеевич</full_name>
+    <squad>запасной</squad>
+    <position>Вратарь</position>
+    <titles>1</titles>
+    <sport>Хоккей</sport>
+    <rank>1-й юношеский</rank>
+  </athlete>
+  <athlete>
+    <full_name>Титов Иван Дмитриевич</full_name>
+    <squad>n/a</squad>
+    <position>Полутяжелый вес</position>
+    <titles>14</titles>
+    <sport>Бокс</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+  <athlete>
+    <full_name>Давыдов Михаил Юрьевич</full_name>
+    <squad>основной</squad>
+    <position>Спринтер</position>
+    <titles>27</titles>
+    <sport>Легкая атлетика</sport>
+    <rank>мастер спорта</rank>
+  </athlete>
+</athletes>
