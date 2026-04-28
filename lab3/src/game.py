@@ -45,7 +45,7 @@ class Game:
         self.bullets = pygame.sprite.Group()
         self.enemy_bullets = pygame.sprite.Group()
         self.enemies = pygame.sprite.Group()
-        self.drops = pygame.sprite.Group() # Группа для дропа
+        self.drops = pygame.sprite.Group()
         self.current_wave_idx = 0
         self.enemies_to_spawn = []
         self.spawn_timer = 0
@@ -79,7 +79,6 @@ class Game:
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     self.player.shoot(self.player.pos.x, self.player.pos.y, pygame.mouse.get_pos(), self.bullets)
                 if event.type == pygame.KEYDOWN:
-                    # 1 - Меч (индекс 0), 2 - Пистолет (индекс 1), 3 - Ружье (индекс 2)
                     if event.key == pygame.K_1: self.player.weapon_idx = 0 
                     elif event.key == pygame.K_2: self.player.weapon_idx = 1 
                     elif event.key == pygame.K_3: self.player.weapon_idx = 2
@@ -94,7 +93,6 @@ class Game:
     def update(self):
         self.player.update()
         
-        # Если игрок умер и анимация закончилась
         if self.player.state == "death" and not self.player.alive():
             self.check_highscore()
 
@@ -118,7 +116,6 @@ class Game:
         for e in self.enemies:
             e.update(self.player.pos, self.enemy_bullets)
 
-        # Сбор дропа игроком
         if self.player.state != "death":
             for drop in pygame.sprite.spritecollide(self.player, self.drops, True, pygame.sprite.collide_circle):
                 if drop.type == 'medkit':
@@ -128,15 +125,13 @@ class Game:
                 elif drop.type == 'ammo_sword':
                     self.player.weapons[2].ammo = min(self.player.weapons[2].ammo + 15, self.player.weapons[2].max_ammo)
 
-            # Урон игроку
             for enemy in pygame.sprite.spritecollide(self.player, self.enemies, False, pygame.sprite.collide_circle):
                 if enemy.state != "death" and self.player.take_damage(enemy.damage / 60):
-                    pass # Смерть обрабатывается в начале update
+                    pass
 
             if pygame.sprite.spritecollide(self.player, self.enemy_bullets, True, pygame.sprite.collide_circle):
                 self.player.take_damage(10)
 
-        # Урон врагам
         hits = pygame.sprite.groupcollide(self.enemies, self.bullets, False, False)
         for enemy, bullets_hit in hits.items():
             if enemy.state == "death": continue
@@ -158,9 +153,6 @@ class Game:
             save_score("Player", self.score)
             self.state = "MENU"
 
-    # ... [ОСТАВЛЯЕМ МЕТОДЫ input_record, show_menu, show_records БЕЗ ИЗМЕНЕНИЙ] ...
-    
-    # Для полноты ответа дублирую их, чтобы можно было скопировать:
     def input_record(self):
         name = ""
         while self.state == "NEW_RECORD":
@@ -183,24 +175,21 @@ class Game:
             self.clock.tick(FPS)
 
     def show_menu(self):
-            # 1. Включаем музыку для меню
             self.assets.play_music("mainmenu.wav")
             
-            # 2. Настраиваем параллакс (два слоя фона)
             bg_back = self.assets.get_image("bg_menu_back.png", (WIDTH, HEIGHT), (20, 20, 25))
             bg_front = self.assets.get_image("bg_menu_front.png", (WIDTH, HEIGHT), (20, 20, 30))
             scroll_back = 0
             scroll_front = 0
             
             btn_w, btn_h = 250, 50
-            # Сдвигаем кнопки немного выше (начинаем с 230 вместо 250) и уменьшаем шаг между ними
             start_btn = Button(WIDTH//2-btn_w//2, 230, btn_w, btn_h, "START GAME", (50, 150, 50), (70, 200, 70))
             scores_btn = Button(WIDTH//2-btn_w//2, 300, btn_w, btn_h, "RECORDS", (50, 50, 150), (70, 70, 200))
-            help_btn = Button(WIDTH//2-btn_w//2, 370, btn_w, btn_h, "HELP", (150, 100, 50), (200, 150, 70)) # Оранжевая кнопка
+            help_btn = Button(WIDTH//2-btn_w//2, 370, btn_w, btn_h, "HELP", (150, 100, 50), (200, 150, 70))
             exit_btn = Button(WIDTH//2-btn_w//2, 440, btn_w, btn_h, "EXIT", (150, 50, 50), (200, 70, 70))
             
             while self.state == "MENU":
-                # --- Логика параллакса ---
+                
                 scroll_back -= 0.5   
                 scroll_front -= 1.5  
                 
@@ -212,50 +201,25 @@ class Game:
                 
                 self.screen.blit(bg_front, (scroll_front, 0))
                 self.screen.blit(bg_front, (scroll_front + WIDTH, 0))
-                # -------------------------
+                
 
                 title = self.font.render("CRIMSONLAND", True, (255, 50, 50))
                 self.screen.blit(title, (WIDTH//2 - title.get_width()//2, 100))
                 
                 start_btn.draw(self.screen)
                 scores_btn.draw(self.screen)
-                help_btn.draw(self.screen) # Отрисовка кнопки справки
+                help_btn.draw(self.screen) 
                 exit_btn.draw(self.screen)
                 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT: pygame.quit(); sys.exit()
                     if start_btn.is_clicked(event): self.state = "PLAYING"
                     if scores_btn.is_clicked(event): self.state = "RECORDS"
-                    if help_btn.is_clicked(event): self.state = "HELP" # Переход в справку
+                    if help_btn.is_clicked(event): self.state = "HELP" 
                     if exit_btn.is_clicked(event): pygame.quit(); sys.exit()
                     
                 pygame.display.flip()
                 self.clock.tick(FPS)
-
-    def game_loop(self):
-        self.reset_game()
-        
-        # Включаем музыку для игры
-        self.assets.play_music("game_theme.mp3")
-        
-        # Загружаем фон для самой игры (например, земля/трава/асфальт)
-        bg_game = self.assets.get_image("bg_game.png", (WIDTH, HEIGHT), (40, 40, 40))
-        
-        while self.state == "PLAYING":
-            # Вместо заливки цветом рисуем фон
-            self.screen.blit(bg_game, (0, 0))
-            
-            self.handle_input()
-            self.update()
-            
-            self.all_sprites.draw(self.screen)
-            self.draw_player_weapon()
-            self.bullets.draw(self.screen)
-            self.enemy_bullets.draw(self.screen)
-            self.draw_ui()
-            
-            pygame.display.flip()
-            self.clock.tick(FPS)
 
     def show_records(self):
         while self.state == "RECORDS":
@@ -281,7 +245,7 @@ class Game:
         wv = self.font.render(f"Wave: {self.current_wave_idx}", True, (255, 255, 255))
         sc = self.font.render(f"Score: {self.score}", True, (255, 255, 0))
         
-        # Отображение патронов (ammo)
+        
         weapon = self.player.current_weapon
         ammo_text = str(weapon.ammo) if weapon.max_ammo != float('inf') else "INF"
         am = self.font.render(f"[{weapon.name.upper()}] AMMO: {ammo_text}", True, (0, 255, 255))
@@ -307,10 +271,10 @@ class Game:
         ]
 
         while self.state == "HELP":
-            self.screen.fill((20, 25, 30)) # Темно-синий фон
+            self.screen.fill((20, 25, 30)) 
             
             for i, line in enumerate(rules_text):
-                # Цветовое выделение для заголовка и футера
+                
                 if i == 0:
                     color = (255, 215, 0)
                     current_font = self.font
@@ -337,16 +301,16 @@ class Game:
             weapon = self.player.current_weapon
             mouse_pos = pygame.mouse.get_pos()
             
-            # Вычисляем угол
+            
             rel_x, rel_y = mouse_pos[0] - self.player.pos.x, mouse_pos[1] - self.player.pos.y
             angle = math.degrees(math.atan2(-rel_y, rel_x))
             
-            # Смещение: выносим оружие на 25 пикселей от центра игрока в сторону мыши
+            
             offset = 50
             weapon_pos_x = self.player.pos.x + math.cos(math.radians(-angle)) * offset
             weapon_pos_y = self.player.pos.y + math.sin(math.radians(-angle)) * offset
             
-            # Вращаем спрайт
+            
             rotated_weapon = pygame.transform.rotate(weapon.sprite, angle)
             weap_rect = rotated_weapon.get_rect(center=(weapon_pos_x, weapon_pos_y))
             
@@ -355,14 +319,14 @@ class Game:
     def game_loop(self):
             self.reset_game()
             
-            # Включаем музыку для игры
+            
             self.assets.play_music("music.wav")
             
-            # Загружаем фон для самой игры (например, земля/трава/асфальт)
+            
             bg_game = self.assets.get_image("bg_game.png", (WIDTH, HEIGHT), (40, 40, 40))
             
             while self.state == "PLAYING":
-                # Вместо заливки цветом рисуем фон
+                
                 self.screen.blit(bg_game, (0, 0))
                 
                 self.handle_input()

@@ -5,7 +5,6 @@ from src.utils import AssetManager, CONFIG, WIDTH, HEIGHT
 
 assets = AssetManager()
 
-# --- СИСТЕМА ДРОПА ---
 class Drop(pygame.sprite.Sprite):
     def __init__(self, x, y, drop_type):
         super().__init__()
@@ -19,7 +18,6 @@ class Drop(pygame.sprite.Sprite):
 
     def update(self):
         self.lifetime -= 1
-        # Твое мерцание перед исчезновением
         if self.lifetime % 30 < 15 and self.lifetime < 120:
             self.image.set_alpha(100) 
         else:
@@ -28,7 +26,6 @@ class Drop(pygame.sprite.Sprite):
         if self.lifetime <= 0:
             self.kill()
 
-# --- ПУЛИ ---
 class Projectile(pygame.sprite.Sprite):
     def __init__(self, x, y, angle, speed, damage, color=(255, 255, 0), radius=4):
         super().__init__()
@@ -46,7 +43,6 @@ class Projectile(pygame.sprite.Sprite):
         if not (0 <= self.pos.x <= WIDTH and 0 <= self.pos.y <= HEIGHT):
             self.kill()
 
-# --- СИСТЕМА ОРУЖИЯ ---
 class Weapon:
     def __init__(self, name):
         cfg = CONFIG['weapons'][name]
@@ -115,7 +111,6 @@ class Sword(Weapon):
         group.add(SwordSlash(slash_x, slash_y, angle, self.damage, self.range))
 
 class LivingEntity(pygame.sprite.Sprite):
-    # Добавили параметры frame_w и frame_h
     def __init__(self, x, y, hp, speed, color, radius, name_prefix, walk_frames=4, death_frames=4, frame_w=64, frame_h=64):
         super().__init__()
         self.name_prefix = name_prefix
@@ -126,11 +121,10 @@ class LivingEntity(pygame.sprite.Sprite):
         self.base_color = color
         
         self.state = "walk"
-        self.angle = 0 # Угол поворота сущности
+        self.angle = 0
         
         sheet_name = f"{name_prefix}_sheet.png"
         
-        # Теперь размеры фреймов динамические
         self.frames = {
             "walk": assets.get_spritesheet_row(sheet_name, frame_w, frame_h, 0, walk_frames, (radius*6, radius*6), color),
             "death": assets.get_spritesheet_row(sheet_name, frame_w, frame_h, 1, death_frames, (radius*6, radius*6), color)
@@ -161,15 +155,12 @@ class LivingEntity(pygame.sprite.Sprite):
         current_frame = self.frames[self.state][self.frame_index % len(self.frames[self.state])]
         base_image = current_frame
         
-        # Фикс белого квадрата: используем BLEND_RGB_ADD, чтобы не ломать прозрачность
         if self.hit_timer > 0:
             self.hit_timer -= 1
             base_image = current_frame.copy()
             base_image.fill((150, 150, 150), special_flags=pygame.BLEND_RGB_ADD)
 
-        # Вращение спрайта. Pygame вращает против часовой стрелки.
         self.image = pygame.transform.rotate(base_image, self.angle)
-        # Обязательно обновляем rect после поворота, чтобы спрайт не "прыгал"
         self.rect = self.image.get_rect(center=self.pos)
 
     def take_damage(self, amount):
@@ -184,12 +175,10 @@ class LivingEntity(pygame.sprite.Sprite):
             return True
         return False
 
-# --- ИГРОК ---
 class Player(LivingEntity):
     def __init__(self, x, y):
         cfg = CONFIG['player']
         
-        # Берем размеры и кол-во кадров из конфига (или оставляем твои дефолтные)
         fw = cfg.get('frame_w', 472)
         fh = cfg.get('frame_h', 472)
         wf = cfg.get('walk_frames', 46)
@@ -203,14 +192,11 @@ class Player(LivingEntity):
 
     def update(self):
         self.current_weapon.update()
-        
-        # Направление на курсор мыши
+
         if self.state != "death":
             mx, my = pygame.mouse.get_pos()
-            # Вычисляем угол. Обрати внимание: Y в Pygame идет вниз, поэтому my вычитается иначе
             self.angle = math.degrees(math.atan2(self.pos.y - my, mx - self.pos.x))
-            
-            # ВАЖНО: Если твой исходный спрайт нарисован лицом ВВЕРХ, раскомментируй строку ниже:
+
             self.angle -= 90 
             
         self.animate()
@@ -230,12 +216,10 @@ class Player(LivingEntity):
         if self.state == "death": return False
         return self.current_weapon.shoot(x, y, target_pos, bullet_group)
 
-# --- ВРАГИ ---
 class Enemy(LivingEntity):
     def __init__(self, x, y, type_name):
         cfg = CONFIG['enemies'][type_name]
-        
-        # Если в конфиге нет размеров для врага, берем стандартные 64x64 и 4 кадра
+
         fw = cfg.get('frame_w', 472)
         fh = cfg.get('frame_h', 472)
         wf = cfg.get('walk_frames', 4)
@@ -256,10 +240,8 @@ class Enemy(LivingEntity):
         if dist_vec.length() > 0:
             direction = dist_vec.normalize()
             
-            # Поворачиваем врага в сторону движения
             self.angle = math.degrees(math.atan2(-direction.y, direction.x))
             self.angle += 90
-            # Если исходный спрайт смотрит ВВЕРХ, добавь: 
             
             if self.behavior == "chase":
                 self.pos += direction * self.speed
@@ -273,9 +255,7 @@ class Enemy(LivingEntity):
                     self.pos -= direction * self.speed
                 
                 if random.random() < 0.01:
-                    # Пули стреляют по углу до игрока
                     bullet_angle = math.atan2(dist_vec.y, dist_vec.x)
                     enemy_bullets.add(Projectile(self.pos.x, self.pos.y, bullet_angle, 5, self.damage, (255, 0, 255)))
 
-        # Вызываем animate В КОНЦЕ, чтобы применился правильный угол и обновился rect
         self.animate()
