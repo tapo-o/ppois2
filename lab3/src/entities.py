@@ -70,7 +70,6 @@ class Weapon:
             if self.max_ammo != float('inf'):
                 self.ammo -= 1
             
-            # Звуки выстрелов и взмаха
             assets.play_sound(f"{self.name}.wav")
             return True
         return False
