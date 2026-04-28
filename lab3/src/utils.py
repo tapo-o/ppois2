@@ -35,7 +35,8 @@ class AssetManager:
             cls._instance = super().__new__(cls)
             cls._instance.images = {}
             cls._instance.sounds = {}
-            cls._instance.sprite_rows = {} # <-- Добавили кэш для нарезанных анимаций
+            cls._instance.sprite_rows = {} 
+
         return cls._instance
 
     def get_image(self, name, size=None, default_color=(255, 255, 255)):
@@ -75,10 +76,12 @@ class AssetManager:
             self.sounds[name].play()
 
     def get_spritesheet_row(self, name, frame_width, frame_height, row_idx, count, size=None, default_color=(255, 255, 255)):
-        # Создаем уникальный ключ для конкретного запроса кадров
+        
+
         cache_key = f"{name}_{row_idx}_{count}_{size}"
         if cache_key in self.sprite_rows:
-            return self.sprite_rows[cache_key] # Возвращаем из памяти, если уже грузили!
+            return self.sprite_rows[cache_key] 
+
 
         path = os.path.join(ASSETS_DIR, 'images', name)
         
@@ -92,7 +95,8 @@ class AssetManager:
             self.sprite_rows[cache_key] = frames
             return frames
             
-        # Кэшируем сам спрайтшит
+        
+
         if name not in self.images:
             self.images[name] = pygame.image.load(path).convert_alpha()
         sheet = self.images[name]
@@ -107,5 +111,6 @@ class AssetManager:
                 frame = pygame.transform.scale(frame, size)
             frames.append(frame)
             
-        self.sprite_rows[cache_key] = frames # Сохраняем в кэш
+        self.sprite_rows[cache_key] = frames 
+
         return frames
