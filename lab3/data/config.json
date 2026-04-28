@@ -1,0 +1,65 @@
+{
+  "player": {
+    "speed": 5,
+    "hp": 100
+  },
+  "weapons": {
+    "sword": { "damage": 60, "cooldown": 30, "range": 40, "type": "melee", "max_ammo": "inf" },
+    "pistol": { "damage": 25, "cooldown": 20, "speed": 15, "type": "ranged", "max_ammo": 15 },
+    "shotgun": { "damage": 15, "cooldown": 50, "speed": 12, "type": "spread", "pellets": 5, "max_ammo": 7 }
+  },
+"enemies": {
+    "zombie": { 
+      "hp": 50, "speed": 2.0, "damage": 10, "behavior": "chase", "drop_chance": 0.3,
+      "color": [34, 139, 34], "radius": 15,
+      "frame_w": 472, "frame_h": 472, "walk_frames": 46, "death_frames": 20
+    },
+    "runner": { 
+      "hp": 25, "speed": 4.5, "damage": 5, "behavior": "chase", "drop_chance": 0.2,
+      "color": [255, 215, 0], "radius": 10,
+      "frame_w": 472, "frame_h": 472, "walk_frames": 46, "death_frames":20 
+    },
+    "spider": { 
+      "hp": 20, "speed": 3.5, "damage": 15, "behavior": "zigzag", "drop_chance": 0.4,
+      "color": [200, 200, 255], "radius": 15,
+      "frame_w": 472, "frame_h": 472, "walk_frames": 46, "death_frames": 20
+    },
+    "tank": { 
+      "hp": 200, "speed": 1.0, "damage": 30, "behavior": "chase", "drop_chance": 0.8,
+      "color": [139, 0, 0], "radius": 25,
+      "frame_w": 472, "frame_h": 472, "walk_frames": 45, "death_frames": 46
+    },
+    "shooter": { 
+      "hp": 40, "speed": 1.5, "damage": 15, "behavior": "ranged", "drop_chance": 0.5,
+      "color": [128, 0, 128], "radius": 15,
+      "frame_w": 618, "frame_h": 900, "walk_frames": 1, "death_frames": 1
+    },
+    "kamikaze": { 
+      "hp": 15, "speed": 5.0, "damage": 50, "behavior": "chase", "drop_chance": 0.1,
+      "color": [255, 69, 0], "radius": 12,
+      "frame_w": 3088, "frame_h": 2316, "walk_frames": 1, "death_frames": 1
+    }
+  },
+  "waves": [
+    { "id": 1, "enemies": { "zombie": 5 } },
+    { "id": 2, "enemies": { "zombie": 10 } },
+    { "id": 3, "enemies": { "zombie": 8, "runner": 2 } },
+    { "id": 4, "enemies": { "zombie": 10, "runner": 5 } },
+    { "id": 5, "enemies": { "zombie": 15, "tank": 1 } },
+    { "id": 6, "enemies": { "zombie": 10, "spider": 5 } },
+    { "id": 7, "enemies": { "runner": 15 } },
+    { "id": 8, "enemies": { "zombie": 10, "shooter": 2 } },
+    { "id": 9, "enemies": { "zombie": 15, "shooter": 4, "runner": 5 } },
+    { "id": 10, "enemies": { "tank": 3, "zombie": 10 } },
+    { "id": 11, "enemies": { "spider": 15 } },
+    { "id": 12, "enemies": { "zombie": 20, "shooter": 5 } },
+    { "id": 13, "enemies": { "runner": 20, "spider": 10 } },
+    { "id": 14, "enemies": { "tank": 5, "shooter": 5 } },
+    { "id": 15, "enemies": { "zombie": 30 } },
+    { "id": 16, "enemies": { "runner": 30 } },
+    { "id": 17, "enemies": { "spider": 20, "tank": 2 } },
+    { "id": 18, "enemies": { "shooter": 10, "zombie": 20 } },
+    { "id": 19, "enemies": { "tank": 5, "runner": 15, "spider": 5 } },
+    { "id": 20, "enemies": { "zombie": 30, "runner": 20, "tank": 5, "spider": 10, "shooter": 10 } }
+  ]
+}
