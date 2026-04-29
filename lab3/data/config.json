@@ -4,8 +4,8 @@
     "hp": 100
   },
   "weapons": {
-    "sword": { "damage": 60, "cooldown": 30, "range": 40, "type": "melee", "max_ammo": "inf" },
-    "pistol": { "damage": 25, "cooldown": 20, "speed": 15, "type": "ranged", "max_ammo": 15 },
+    "sword": { "damage": 20, "cooldown": 30, "range": 40, "type": "melee", "max_ammo": "inf" },
+    "pistol": { "damage": 15, "cooldown": 20, "speed": 15, "type": "ranged", "max_ammo": 15 },
     "shotgun": { "damage": 15, "cooldown": 50, "speed": 12, "type": "spread", "pellets": 5, "max_ammo": 7 }
   },
 "enemies": {

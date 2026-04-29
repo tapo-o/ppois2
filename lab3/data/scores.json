@@ -1,6 +1,6 @@
 [
     {
-        "name": "popa bobra",
+        "name": "bober",
         "score": 4910
     },
     {
@@ -20,12 +20,16 @@
         "score": 210
     },
     {
-        "name": "popa bobra",
+        "name": "bober",
         "score": 130
     },
     {
         "name": "Player",
         "score": 100
+    },
+    {
+        "name": "Player",
+        "score": 70
     },
     {
         "name": "asd",
@@ -37,10 +41,6 @@
     },
     {
         "name": "Player",
-        "score": 60
-    },
-    {
-        "name": "Player",
-        "score": 70
+        "score": 860
     }
 ]
